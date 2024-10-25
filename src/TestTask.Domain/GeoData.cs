@@ -13,12 +13,13 @@ public class GeoData
 
 	internal GeoData()
 	{
+		IpAddress = IPAddress.None;
 	}
 
 	public IPAddress IpAddress { get; internal set; }
 	public Uri? Uri { get; internal set; }
-	public string Latitude { get; internal set; }
-	public string Longitude { get; internal set; }
+	public string? Latitude { get; internal set; }
+	public string? Longitude { get; internal set; }
 
 	internal bool GeoDataIsFilled { get; set; } = false;
 
