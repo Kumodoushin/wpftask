@@ -18,19 +18,19 @@ public class GeoData
 
 	public IPAddress IpAddress { get; internal set; }
 	public Uri? Uri { get; internal set; }
-	public string? Latitude { get; internal set; }
-	public string? Longitude { get; internal set; }
+	public decimal? Latitude { get; internal set; }
+	public decimal? Longitude { get; internal set; }
 
 	internal bool GeoDataIsFilled { get; set; } = false;
 
-	public void ApplyGeoDataFrom(IPGeolocation.Geolocation geolocation)
+	public void ApplyGeoDataFrom(IGeographicCoordinatesService.GeoCoordinates geolocation)
 	{
 		if (GeoDataIsFilled)
 		{
 			return;
 		}
-		Latitude = geolocation.GetLatitude();
-		Longitude = geolocation.GetLongitude();
+		Latitude = geolocation.Latitude;
+		Longitude = geolocation.Longitude;
 		GeoDataIsFilled = true;
 	}
 }
