@@ -3,9 +3,32 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hostsList="clr-namespace:TestTask.Presentation.HostsList"
+        xmlns:hostDetails="clr-namespace:TestTask.Presentation.HostDetails"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="450" Width="600">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="GeoData for IP/URL" FontSize="32" Padding="20 5"/>
+            <Button Grid.Column="1" Content="Add" Padding="15 5"/> 
+        </Grid>
+    
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" ></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <hostsList:HostListView Grid.Column="0" Margin="10 0 0 0"/>
+            <hostDetails:HostDetailsView Grid.Column="1" Margin="10 0 0 0"/>
+        </Grid>
     </Grid>
 </Window>
