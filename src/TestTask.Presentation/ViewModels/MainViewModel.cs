@@ -1,6 +1,8 @@
-﻿namespace TestTask.Presentation.ViewModels;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-public class MainViewModel : ViewModelBase
+namespace TestTask.Presentation.ViewModels;
+
+public class MainViewModel : ObservableObject
 {
 	
 }
