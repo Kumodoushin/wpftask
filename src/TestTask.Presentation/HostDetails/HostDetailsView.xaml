@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:TestTask.Presentation.HostDetails"
              mc:Ignorable="d"
              d:DesignHeight="150" d:DesignWidth="300">
+    <UserControl.DataContext>
+        <local:DetailsVM />
+    </UserControl.DataContext>
     <Grid>
         <Border
             BorderBrush="#0f0f0f" 
@@ -19,13 +22,32 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                
-                <TextBlock 
-                    Grid.Row="0" 
-                    Text="1.2.3.4"
-                    FontSize="18"
-                    Margin="10 20 0 0"
-                    FontWeight="SemiBold"/>
+                <Grid Grid.Row="0"
+                      Margin="10 10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock 
+                        Grid.Column="0" 
+                        Text="{Binding DomainObjectName}"
+                        FontSize="18"
+                        FontWeight="SemiBold"
+                        VerticalAlignment="Center"/>
+                    <Button 
+                        Grid.Column="1" 
+                        Content="↺"
+                        Padding="5"
+                        Margin="5 0" 
+                        Command="{Binding RefreshCommand}" />
+                    <Button 
+                        Grid.Column="2"
+                        Content="Update GeoData"
+                        Padding="5 5"
+                        VerticalAlignment="Center"
+                        Command="{Binding UpdateGeoDataCommand}"/> 
+                </Grid>
                 
                 <Grid Grid.Row="1" Margin="10 20 0 0">
                     <Grid.ColumnDefinitions>
@@ -35,7 +57,7 @@
                     <TextBlock Grid.Column="0" Text="Latitude" FontWeight="SemiBold"/>
                     <TextBlock 
                         Grid.Column="1" 
-                        Text="-172" 
+                        Text="{Binding Latitude}" 
                         Margin="20 0 0 0"
                         HorizontalAlignment="Right"/>
                 </Grid>
@@ -47,7 +69,7 @@
                     <TextBlock Grid.Column="0" Text="Longitude" FontWeight="SemiBold"/>
                     <TextBlock 
                         Grid.Column="1" 
-                        Text="72" 
+                        Text="{Binding Longitude}" 
                         Margin="20 0 0 0"
                         HorizontalAlignment="Right"/>
                 </Grid>
